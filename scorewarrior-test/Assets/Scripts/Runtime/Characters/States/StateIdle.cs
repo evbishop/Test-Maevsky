@@ -1,5 +1,3 @@
-using Scorewarrior.Runtime.Bootstrap;
-
 namespace Scorewarrior.Runtime.Characters.States
 {
     public class StateIdle : State

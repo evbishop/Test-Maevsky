@@ -10,8 +10,7 @@ namespace Scorewarrior.Runtime.Characters
 		private readonly int _paramReloadTime = Animator.StringToHash("reload_time");
 		private readonly int _paramShooting = Animator.StringToHash("shoot");
 
-		[SerializeField]
-		private Animator _animator;
+		[SerializeField] private Animator _animator;
 		
 		public void PlayAnimDeath()
 		{

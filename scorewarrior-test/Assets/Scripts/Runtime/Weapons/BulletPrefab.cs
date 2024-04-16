@@ -21,21 +21,9 @@ namespace Scorewarrior.Runtime.Weapons
 			_transform = transform;
 		}
 
-		public void Init(WeaponPrefab weapon, Character target, bool isHit)
+		private void Update()
 		{
-			_weapon = weapon;
-			_target = target;
-			_isHit = isHit;
-			_startPosition = _transform.position;
-			_currentDistance = 0;
-
-			Vector3 targetPosition = target.Position + Vector3.up * 2.0f;
-			_direction = Vector3.Normalize(targetPosition - _startPosition);
-			_totalDistance = Vector3.Distance(targetPosition, _startPosition);
-		}
-
-		public void Update()
-		{
+			
 			_currentDistance += Time.deltaTime * _bulletInfo.Speed;
 			if (_currentDistance < _totalDistance)
 			{
@@ -49,6 +37,19 @@ namespace Scorewarrior.Runtime.Weapons
 				}
 				Destroy(gameObject);
 			}
+		}
+
+		public void Init(WeaponPrefab weapon, Character target, bool isHit)
+		{
+			_weapon = weapon;
+			_target = target;
+			_isHit = isHit;
+			_startPosition = _transform.position;
+			_currentDistance = 0;
+
+			Vector3 targetPosition = target.Position + Vector3.up * 2.0f;
+			_direction = Vector3.Normalize(targetPosition - _startPosition);
+			_totalDistance = Vector3.Distance(targetPosition, _startPosition);
 		}
 	}
 }

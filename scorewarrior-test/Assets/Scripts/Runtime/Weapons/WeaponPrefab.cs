@@ -10,7 +10,7 @@ namespace Scorewarrior.Runtime.Weapons
 
 		public void Fire(Character character, bool hit)
 		{
-			BulletPrefab bullet = Instantiate(Info.BulletPrefab, BarrelTransform);
+			BulletPrefab bullet = Instantiate(Info.BulletPrefab);
 			bullet.transform.position = BarrelTransform.position;
 			bullet.Init(this, character, hit);
 		}
