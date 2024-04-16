@@ -2,6 +2,10 @@
 using UnityEngine;
 using Scorewarrior.Runtime.Characters;
 using Scorewarrior.Runtime.Weapons;
+using System.Linq;
+using System;
+using Random = UnityEngine.Random;
+using Object = UnityEngine.Object;
 
 namespace Scorewarrior.Runtime.Bootstrap
 {
@@ -11,6 +15,8 @@ namespace Scorewarrior.Runtime.Bootstrap
 		private readonly Dictionary<Team, List<Character>> _charactersByTeam;
 
 		private bool _isPaused;
+
+		public event Action OnTeamDeath;
 
 		public Battlefield(Dictionary<Team, List<Vector3>> spawnPositionsByTeam)
 		{
@@ -32,10 +38,21 @@ namespace Scorewarrior.Runtime.Bootstrap
 				while (i < positions.Count && availablePrefabs.Count > 0)
 				{
 					int index = Random.Range(0, availablePrefabs.Count);
-					characters.Add(CreateCharacterAt(availablePrefabs[index], this, positions[i]));
+					Character character = CreateCharacterAt(availablePrefabs[index], this, positions[i]);
+					character.OnCharacterDeath += HandleCharacterDeath;
+					characters.Add(character);
 					availablePrefabs.RemoveAt(index);
 					i++;
 				}
+			}
+		}
+
+		private void HandleCharacterDeath(Character character)
+		{
+			character.OnCharacterDeath -= HandleCharacterDeath;
+			if (_charactersByTeam.Any(kvp => kvp.Value.All(c => !c.IsAlive)))
+			{
+				OnTeamDeath?.Invoke();
 			}
 		}
 
@@ -98,11 +115,23 @@ namespace Scorewarrior.Runtime.Bootstrap
 			}
 		}
 
-		private static Character CreateCharacterAt(CharacterPrefab prefab, Battlefield battlefield, Vector3 position)
+		private Character CreateCharacterAt(CharacterPrefab prefab, Battlefield battlefield, Vector3 position)
 		{
 			CharacterPrefab character = Object.Instantiate(prefab);
 			character.transform.position = position;
 			return new Character(character, new Weapon(character.Weapon), battlefield, character.Info);
+		}
+
+		public void Clear()
+		{
+			foreach (var (team, characters) in _charactersByTeam)
+			{
+				while (characters.Count > 0)
+				{
+					Object.Destroy(characters[0].Prefab.gameObject);
+					characters.RemoveAt(0);
+				}
+			}
 		}
 	}
 }

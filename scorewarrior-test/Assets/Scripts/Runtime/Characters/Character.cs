@@ -2,11 +2,14 @@
 using Scorewarrior.Runtime.Weapons;
 using Scorewarrior.Runtime.Bootstrap;
 using Scorewarrior.Runtime.Characters.States;
+using System;
 
 namespace Scorewarrior.Runtime.Characters
 {
 	public class Character
 	{
+		public event Action<Character> OnCharacterDeath;
+
 		private CharacterStates _states;
 		private float _health;
 		private float _armor;
@@ -56,8 +59,14 @@ namespace Scorewarrior.Runtime.Characters
 			}
 			if (_armor <= 0 && _health <= 0)
 			{
-				Prefab.Anim.PlayAnimDeath();
+				Die();
 			}
+		}
+
+		private void Die()
+		{
+			Prefab.Anim.PlayAnimDeath();
+			OnCharacterDeath?.Invoke(this);
 		}
 	}
 }
