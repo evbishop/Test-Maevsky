@@ -30,9 +30,14 @@ namespace Scorewarrior.Runtime.Characters
 			Weapon = weapon;
 			Battlefield = battlefield;
 			Info = info;
-			_health = info.MaxHealth;
-			_armor = info.MaxArmor;
+			_health = info.GetValue(CharacterStatType.MaxHealth);
+			_armor = info.GetValue(CharacterStatType.MaxArmor);
 			_states = new CharacterStates(this);
+		}
+
+		public void GenerateBonuses()
+		{
+
 		}
 
 		public void Update(float deltaTime)
@@ -52,13 +57,13 @@ namespace Scorewarrior.Runtime.Characters
 			if (_armor > 0)
 			{
 				_armor -= damage;
-				Prefab.ArmorDisplay.Setup(_armor/Info.MaxArmor);
+				Prefab.ArmorDisplay.Setup(_armor/Info.GetValue(CharacterStatType.MaxArmor));
 			}
 			else if (_health > 0)
 			{
 				Prefab.ArmorDisplay.gameObject.SetActive(false);
 				_health -= damage;
-				Prefab.HealthDisplay.Setup(_health/Info.MaxHealth);
+				Prefab.HealthDisplay.Setup(_health/Info.GetValue(CharacterStatType.MaxHealth));
 			}
 			if (_armor <= 0 && _health <= 0)
 			{

@@ -38,7 +38,7 @@ namespace Scorewarrior.Runtime.Bootstrap
 				while (i < positions.Count && availablePrefabs.Count > 0)
 				{
 					int index = Random.Range(0, availablePrefabs.Count);
-					Character character = CreateCharacterAt(availablePrefabs[index], this, positions[i]);
+					Character character = CreateCharacterAt(availablePrefabs[index], positions[i]);
 					if (team == Team.Green)
 					{
 						character.Prefab.HealthDisplay.SetGreen();
@@ -123,11 +123,11 @@ namespace Scorewarrior.Runtime.Bootstrap
 			}
 		}
 
-		private Character CreateCharacterAt(CharacterPrefab prefab, Battlefield battlefield, Vector3 position)
+		private Character CreateCharacterAt(CharacterPrefab prefab, Vector3 position)
 		{
 			CharacterPrefab character = Object.Instantiate(prefab);
 			character.transform.position = position;
-			return new Character(character, new Weapon(character.Weapon), battlefield, character.Info);
+			return new Character(character, new Weapon(character.Weapon), this, character.Info);
 		}
 
 		public void Clear()

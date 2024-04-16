@@ -22,9 +22,9 @@ namespace Scorewarrior.Runtime.Characters.States
                     if (weapon.IsReady)
                     {
                         float random = Random.Range(0.0f, 1.0f);
-                        bool hit = random <= character.Info.Accuracy &&
-                            random <= weapon.Prefab.Info.Accuracy &&
-                            random >= _target.Info.Dexterity;
+                        bool hit = random <= character.Info.GetValue(CharacterStatType.Accuracy) &&
+                            random <= weapon.Prefab.Info.GetValue(Weapons.WeaponStatType.Accuracy) &&
+                            random >= _target.Info.GetValue(CharacterStatType.Dexterity);
                         weapon.Fire(_target, hit);
                         
                         character.Prefab.Anim.PlayAnimShooting();

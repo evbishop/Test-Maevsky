@@ -33,7 +33,7 @@ namespace Scorewarrior.Runtime.Weapons
 			{
 				if (_isHit)
 				{
-					_target.TakeDamage(_weapon.Info.Damage);
+					_target.TakeDamage(_weapon.Info.GetValue(WeaponStatType.Damage));
 				}
 				Destroy(gameObject);
 			}

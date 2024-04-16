@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scorewarrior.Runtime.Weapons
@@ -6,10 +8,15 @@ namespace Scorewarrior.Runtime.Weapons
 	public class WeaponInfo : ScriptableObject
 	{
 		[field: SerializeField] public BulletPrefab BulletPrefab { get; private set; }
-		[field: SerializeField] public float Damage { get; private set; }
-		[field: SerializeField] public float Accuracy { get; private set; }
-		[field: SerializeField] public float FireRate { get; private set; }
-		[field: SerializeField] public uint ClipSize { get; private set; }
-		[field: SerializeField] public float ReloadTime { get; private set; }
+		[field: SerializeField] public List<WeaponStat> Stats { get; private set; }
+
+		public float GetValue(WeaponStatType statType) => Stats.Find(stat => stat.Type == statType).Value;
+	}
+
+	[Serializable]
+	public struct WeaponStat
+	{
+		public WeaponStatType Type;
+		public float Value;
 	}
 }
