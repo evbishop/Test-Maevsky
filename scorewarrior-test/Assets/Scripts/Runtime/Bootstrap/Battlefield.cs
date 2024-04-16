@@ -39,6 +39,14 @@ namespace Scorewarrior.Runtime.Bootstrap
 				{
 					int index = Random.Range(0, availablePrefabs.Count);
 					Character character = CreateCharacterAt(availablePrefabs[index], this, positions[i]);
+					if (team == Team.Green)
+					{
+						character.Prefab.HealthDisplay.SetGreen();
+					}
+					else if (team == Team.Red)
+					{
+						character.Prefab.HealthDisplay.SetRed();
+					}
 					character.OnCharacterDeath += HandleCharacterDeath;
 					characters.Add(character);
 					availablePrefabs.RemoveAt(index);

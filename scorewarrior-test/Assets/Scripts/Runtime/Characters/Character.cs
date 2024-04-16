@@ -52,13 +52,18 @@ namespace Scorewarrior.Runtime.Characters
 			if (_armor > 0)
 			{
 				_armor -= damage;
+				Prefab.ArmorDisplay.Setup(_armor/Info.MaxArmor);
 			}
 			else if (_health > 0)
 			{
+				Prefab.ArmorDisplay.gameObject.SetActive(false);
 				_health -= damage;
+				Prefab.HealthDisplay.Setup(_health/Info.MaxHealth);
 			}
 			if (_armor <= 0 && _health <= 0)
 			{
+				Prefab.ArmorDisplay.gameObject.SetActive(false);
+				Prefab.HealthDisplay.gameObject.SetActive(false);
 				Die();
 			}
 		}

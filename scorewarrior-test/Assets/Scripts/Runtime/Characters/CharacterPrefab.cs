@@ -1,21 +1,17 @@
 ﻿using UnityEngine;
 using Scorewarrior.Runtime.Weapons;
+using Scorewarrior.Runtime.UI;
 
 namespace Scorewarrior.Runtime.Characters
 {
 	public class CharacterPrefab : MonoBehaviour
 	{
-		[field: SerializeField]
-		public CharacterInfo Info { get; private set; }
-
-		[field: SerializeField]
-		public CharacterAnim Anim { get; private set; }
-		
-		[field: SerializeField]
-		public WeaponPrefab Weapon { get; private set; }
-		
-		[SerializeField]
-		private Transform _rightPalm;
+		[field: SerializeField] public CharacterInfo Info { get; private set; }
+		[field: SerializeField] public PanelStatArmor ArmorDisplay { get; private set; }
+		[field: SerializeField] public PanelStatHealth HealthDisplay { get; private set; }
+		[field: SerializeField] public CharacterAnim Anim { get; private set; }
+		[field: SerializeField] public WeaponPrefab Weapon { get; private set; }
+		[SerializeField] private Transform _rightPalm;
 
 		private Transform _weaponTransform;
 
