@@ -2,20 +2,29 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+scorewarrior-test/[Ll]ibrary/
+scorewarrior-test/[Tt]emp/
+scorewarrior-test/[Oo]bj/
+scorewarrior-test/[Bb]uild/
+scorewarrior-test/[Bb]uilds/
+scorewarrior-test/[Ll]ogs/
+scorewarrior-test/[Uu]ser[Ss]ettings/
+scorewarrior-test-reflection/[Ll]ibrary/
+scorewarrior-test-reflection/[Tt]emp/
+scorewarrior-test-reflection/[Oo]bj/
+scorewarrior-test-reflection/[Bb]uild/
+scorewarrior-test-reflection/[Bb]uilds/
+scorewarrior-test-reflection/[Ll]ogs/
+scorewarrior-test-reflection/[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
-/[Mm]emoryCaptures/
+scorewarrior-test/[Mm]emoryCaptures/
+scorewarrior-test-reflection/[Mm]emoryCaptures/
 
 # Recordings can get excessive in size
-/[Rr]ecordings/
+scorewarrior-test/[Rr]ecordings/
+scorewarrior-test-reflection/[Rr]ecordings/
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
@@ -65,7 +74,8 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Packed Addressables
-/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+scorewarrior-test/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+scorewarrior-test-reflection/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
