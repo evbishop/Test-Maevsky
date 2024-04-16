@@ -1,4 +1,5 @@
-﻿using Scorewarrior.Runtime.Characters;
+﻿using System.Collections.Generic;
+using Scorewarrior.Runtime.Characters;
 
 namespace Scorewarrior.Runtime.Weapons
 {
@@ -8,6 +9,7 @@ namespace Scorewarrior.Runtime.Weapons
 		public bool IsReady { get; private set; }
 		private float _ammo;
 		private float _time;
+		private List<WeaponStat> _weaponBonuses = new();
 
 		public Weapon(WeaponPrefab prefab)
 		{

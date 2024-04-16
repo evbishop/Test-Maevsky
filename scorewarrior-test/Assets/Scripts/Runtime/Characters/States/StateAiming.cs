@@ -7,7 +7,7 @@ namespace Scorewarrior.Runtime.Characters.States
 
         public StateAiming(CharacterStates stateMachine, Character target) : base(stateMachine)
         {
-            _time = character.Info.GetValue(CharacterStatType.AimTime);
+            _time = character.Prefab.Info.GetValue(CharacterStatType.AimTime);
             _target = target;
             character.Transform.LookAt(target.Position);
         }

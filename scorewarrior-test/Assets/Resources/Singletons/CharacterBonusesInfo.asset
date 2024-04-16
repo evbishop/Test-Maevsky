@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eed7abca98ba0441b315e39484d1e2c, type: 3}
+  m_Name: CharacterBonusesInfo
+  m_EditorClassIdentifier: 
+  <Bonuses>k__BackingField:
+  - Type: 1
+    MinModifierValue: 1.1
+    MaxModifierValue: 1.2
+  - Type: 2
+    MinModifierValue: 1.1
+    MaxModifierValue: 1.3
+  - Type: 3
+    MinModifierValue: 1.1
+    MaxModifierValue: 1.5
+  - Type: 4
+    MinModifierValue: 1.1
+    MaxModifierValue: 2
+  - Type: 5
+    MinModifierValue: 0.5
+    MaxModifierValue: 0.9

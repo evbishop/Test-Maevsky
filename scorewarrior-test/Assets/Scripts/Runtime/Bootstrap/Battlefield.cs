@@ -127,7 +127,7 @@ namespace Scorewarrior.Runtime.Bootstrap
 		{
 			CharacterPrefab character = Object.Instantiate(prefab);
 			character.transform.position = position;
-			return new Character(character, new Weapon(character.Weapon), this, character.Info);
+			return new Character(character, new Weapon(character.Weapon), this);
 		}
 
 		public void Clear()
