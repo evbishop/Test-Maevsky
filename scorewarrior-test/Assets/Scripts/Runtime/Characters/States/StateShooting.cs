@@ -1,12 +1,12 @@
 using UnityEngine;
 
-namespace Scorewarrior.Test.Characters.States
+namespace Scorewarrior.Runtime.Characters.States
 {
     public class StateShooting : State
     {
         private Character _target;
 
-        public StateShooting(Character character, Character target) : base(character)
+        public StateShooting(CharacterStates stateMachine, Character target) : base(stateMachine)
         {
             _target = target;
         }
@@ -36,12 +36,12 @@ namespace Scorewarrior.Test.Characters.States
                 }
                 else
                 {
-                    character.SetStateReloading();
+                    stateMachine.SetStateReloading();
                 }
             }
             else
             {
-                character.SetStateIdle();
+                stateMachine.SetStateIdle();
             }
         }
     }

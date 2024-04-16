@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Scorewarrior.Test.Characters
+namespace Scorewarrior.Runtime.Characters
 {
 	public class CharacterAnim : MonoBehaviour
 	{

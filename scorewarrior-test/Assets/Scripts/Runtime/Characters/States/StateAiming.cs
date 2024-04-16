@@ -1,11 +1,11 @@
-namespace Scorewarrior.Test.Characters.States
+namespace Scorewarrior.Runtime.Characters.States
 {
     public class StateAiming : State
     {
         private float _time;
         private Character _target;
 
-        public StateAiming(Character character, Character target) : base(character)
+        public StateAiming(CharacterStates stateMachine, Character target) : base(stateMachine)
         {
             _time = character.Info.AimTime;
             _target = target;
@@ -24,12 +24,12 @@ namespace Scorewarrior.Test.Characters.States
                 }
                 else
                 {
-                    character.SetStateShooting();
+                    stateMachine.SetStateShooting();
                 }
             }
             else
             {
-                character.SetStateIdle();
+                stateMachine.SetStateIdle();
             }
         }
     }

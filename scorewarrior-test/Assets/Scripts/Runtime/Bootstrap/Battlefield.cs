@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Scorewarrior.Test.Characters;
-using Scorewarrior.Test.Weapons;
+using Scorewarrior.Runtime.Characters;
+using Scorewarrior.Runtime.Weapons;
 
-namespace Scorewarrior.Test.Bootstrap
+namespace Scorewarrior.Runtime.Bootstrap
 {
 	public class Battlefield
 	{

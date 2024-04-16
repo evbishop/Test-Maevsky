@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Scorewarrior.Test.Bootstrap
+namespace Scorewarrior.Runtime.Bootstrap
 {
 	public class SpawnPoint : MonoBehaviour
 	{

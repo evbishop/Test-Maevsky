@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Scorewarrior.Test.Characters
+namespace Scorewarrior.Runtime.Characters
 {
     [CreateAssetMenu(fileName = "Character Info", menuName = "Scriptable Objects/Create Character Info")]
     public class CharacterInfo : ScriptableObject

@@ -1,4 +1,4 @@
-namespace Scorewarrior.Test.Bootstrap
+namespace Scorewarrior.Runtime.Bootstrap
 {
     public enum Team : byte
     {

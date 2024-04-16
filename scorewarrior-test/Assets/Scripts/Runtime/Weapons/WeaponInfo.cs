@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Scorewarrior.Test.Weapons
+namespace Scorewarrior.Runtime.Weapons
 {
     [CreateAssetMenu(fileName = "Weapon Info", menuName = "Scriptable Objects/Create Weapon Info")]
 	public class WeaponInfo : ScriptableObject

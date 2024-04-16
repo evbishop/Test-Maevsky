@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using Scorewarrior.Test.Weapons;
+using Scorewarrior.Runtime.Weapons;
 
-namespace Scorewarrior.Test.Characters
+namespace Scorewarrior.Runtime.Characters
 {
 	public class CharacterPrefab : MonoBehaviour
 	{

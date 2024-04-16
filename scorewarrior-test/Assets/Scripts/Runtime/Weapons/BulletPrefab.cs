@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using Scorewarrior.Test.Characters;
+using Scorewarrior.Runtime.Characters;
 
-namespace Scorewarrior.Test.Weapons
+namespace Scorewarrior.Runtime.Weapons
 {
 	public class BulletPrefab : MonoBehaviour
 	{

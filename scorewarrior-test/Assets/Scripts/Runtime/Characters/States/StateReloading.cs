@@ -1,13 +1,13 @@
-namespace Scorewarrior.Test.Characters.States
+namespace Scorewarrior.Runtime.Characters.States
 {
     public class StateReloading : State
     {
         private float _time;
         private Character _target;
 
-        public StateReloading(Character character, Character target) : base(character)
+        public StateReloading(CharacterStates stateMachine, Character target) : base(stateMachine)
         {
-            _time = character.Weapon.Prefab.Info.ReloadTime;
+            _time = weapon.Prefab.Info.ReloadTime;
             _target = target;
         }
 
@@ -23,11 +23,11 @@ namespace Scorewarrior.Test.Characters.States
             {
                 if (_target != null && _target.IsAlive)
                 {
-                    character.SetStateShooting();
+                    stateMachine.SetStateShooting();
                 }
                 else
                 {
-                    character.SetStateIdle();
+                    stateMachine.SetStateIdle();
                 }
                 weapon.Reload();
             }

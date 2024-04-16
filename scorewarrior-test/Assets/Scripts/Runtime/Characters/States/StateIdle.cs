@@ -1,10 +1,10 @@
-using Scorewarrior.Test.Bootstrap;
+using Scorewarrior.Runtime.Bootstrap;
 
-namespace Scorewarrior.Test.Characters.States
+namespace Scorewarrior.Runtime.Characters.States
 {
     public class StateIdle : State
     {
-        public StateIdle(Character character) : base(character)
+        public StateIdle(CharacterStates stateMachine) : base(stateMachine)
         {
 
         }
@@ -15,7 +15,7 @@ namespace Scorewarrior.Test.Characters.States
 
             if (character.Battlefield.TryGetNearestAliveEnemy(character, out Character target))
             {
-                character.SetStateAiming(target);
+                stateMachine.SetStateAiming(target);
             }
         }
     }

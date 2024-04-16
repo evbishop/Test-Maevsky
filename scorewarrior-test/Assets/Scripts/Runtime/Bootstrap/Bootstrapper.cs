@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Scorewarrior.Test.Characters;
+using Scorewarrior.Runtime.Characters;
 
-namespace Scorewarrior.Test.Bootstrap
+namespace Scorewarrior.Runtime.Bootstrap
 {
 	public class Bootstrapper : MonoBehaviour
 	{
