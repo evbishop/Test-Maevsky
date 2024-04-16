@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3900042163149813639}
   - component: {fileID: 5892142783300754779}
   - component: {fileID: 7873495124653106676}
-  - component: {fileID: 1091872874136495737}
+  - component: {fileID: 6502608486777399043}
   m_Layer: 8
   m_Name: Engineer
   m_TagString: Untagged
@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.55, y: 1.55, z: 1.55}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1147226725980043646}
   m_Father: {fileID: 0}
@@ -59,10 +60,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f106856823f42fc4ebee584045cccc25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 7198119111691828770}
-  Animator: {fileID: 7017108912382628868}
+  <Info>k__BackingField: {fileID: 11400000, guid: dfb9b3cd63ac93347aaf30729f928eef, type: 2}
+  <Anim>k__BackingField: {fileID: 6502608486777399043}
+  <Weapon>k__BackingField: {fileID: 7198119111691828770}
   _rightPalm: {fileID: 1864015352317427229}
---- !u!114 &1091872874136495737
+--- !u!114 &6502608486777399043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,14 +73,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 19389303171958164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aedd16e9549f447c8deb44059966bf79, type: 3}
+  m_Script: {fileID: 11500000, guid: c05612cd4968bbf44ab69dce2edac877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Accuracy: 0.8
-  Dexterity: 0.1
-  MaxHealth: 100
-  MaxArmor: 200
-  AimTime: 2
+  _animator: {fileID: 7017108912382628868}
 --- !u!1001 &5298731469487043999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -417,13 +415,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 2d4548fefc6423d4fb8847c98cec6c81, type: 3}
   m_PrefabInstance: {fileID: 5373199454742925924}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &7017108912382628868 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 2d4548fefc6423d4fb8847c98cec6c81, type: 3}
-  m_PrefabInstance: {fileID: 5373199454742925924}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1864015352317427229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3220319501169496967, guid: 2d4548fefc6423d4fb8847c98cec6c81, type: 3}
+  m_PrefabInstance: {fileID: 5373199454742925924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7017108912382628868 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 2d4548fefc6423d4fb8847c98cec6c81, type: 3}
   m_PrefabInstance: {fileID: 5373199454742925924}
   m_PrefabAsset: {fileID: 0}

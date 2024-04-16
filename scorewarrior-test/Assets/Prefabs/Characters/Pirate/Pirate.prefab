@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4242024731976813591}
   - component: {fileID: 4105724476058036713}
   - component: {fileID: 6969867628901760352}
-  - component: {fileID: 7098091886320096997}
+  - component: {fileID: 4880102310117721545}
   m_Layer: 8
   m_Name: Pirate
   m_TagString: Untagged
@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.55, y: 1.55, z: 1.55}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1212476564294649649}
   m_Father: {fileID: 0}
@@ -59,10 +60,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f106856823f42fc4ebee584045cccc25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 3060222105453739204}
-  Animator: {fileID: 9104473887299627595}
+  <Info>k__BackingField: {fileID: 11400000, guid: 0d6356e46399875459139715bcdfc4a7, type: 2}
+  <Anim>k__BackingField: {fileID: 4880102310117721545}
+  <Weapon>k__BackingField: {fileID: 3060222105453739204}
   _rightPalm: {fileID: 497086688545865810}
---- !u!114 &7098091886320096997
+--- !u!114 &4880102310117721545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,14 +73,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3534475785278328611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aedd16e9549f447c8deb44059966bf79, type: 3}
+  m_Script: {fileID: 11500000, guid: c05612cd4968bbf44ab69dce2edac877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Accuracy: 0.85
-  Dexterity: 0.2
-  MaxHealth: 100
-  MaxArmor: 100
-  AimTime: 2
+  _animator: {fileID: 9104473887299627595}
 --- !u!1001 &204051381636911772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -360,14 +358,14 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4e85f8de53b6c424b87fbd872aaa13bc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56eba4e61dc146f46bf109255c106221, type: 3}
+--- !u!4 &497086688545865810 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3220319501169496967, guid: 56eba4e61dc146f46bf109255c106221, type: 3}
+  m_PrefabInstance: {fileID: 6172501925970144299}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1212476564294649649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 56eba4e61dc146f46bf109255c106221, type: 3}
-  m_PrefabInstance: {fileID: 6172501925970144299}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &9104473887299627595 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 56eba4e61dc146f46bf109255c106221, type: 3}
   m_PrefabInstance: {fileID: 6172501925970144299}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2531854647313373283 stripped
@@ -375,9 +373,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -681215969731513272, guid: 56eba4e61dc146f46bf109255c106221, type: 3}
   m_PrefabInstance: {fileID: 6172501925970144299}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &497086688545865810 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -3220319501169496967, guid: 56eba4e61dc146f46bf109255c106221, type: 3}
+--- !u!95 &9104473887299627595 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 56eba4e61dc146f46bf109255c106221, type: 3}
   m_PrefabInstance: {fileID: 6172501925970144299}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7613792600947785170

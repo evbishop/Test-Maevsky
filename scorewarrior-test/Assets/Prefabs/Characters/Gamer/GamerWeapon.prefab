@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 580412190287345662}
   - component: {fileID: 2439050241734887919}
-  - component: {fileID: 1364199540341921061}
   m_Layer: 8
   m_Name: GamerWeapon
   m_TagString: Untagged
@@ -28,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4886159090351101406}
   - {fileID: 6891360539160034660}
@@ -46,25 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2450383c78e4f9fa453d2d1004ffb55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BarrelTransform: {fileID: 6891360539160034660}
-  _bulletPrefab: {fileID: 8256470978176610155, guid: 9b7ee3ebe18995f44983326e18a9514e, type: 3}
---- !u!114 &1364199540341921061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459277885495194733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09783095c52849c38730af53dc5a534e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 10
-  Accuracy: 0.9
-  FireRate: 0.4
-  ClipSize: 10
-  ReloadTime: 5
+  <Info>k__BackingField: {fileID: 11400000, guid: c6451b816dcf713428047619b933f2fe, type: 2}
+  <BarrelTransform>k__BackingField: {fileID: 6891360539160034660}
 --- !u!1 &4798669743595326290
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +74,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.034, z: 1.288}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 580412190287345662}
   m_RootOrder: 1

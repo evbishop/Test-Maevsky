@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.032, z: 1.0305}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7635542370678243084}
   m_RootOrder: 1
@@ -40,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7635542370678243084}
   - component: {fileID: 8466558729671034309}
-  - component: {fileID: 5158659840354725394}
   m_Layer: 8
   m_Name: IndianWeapon
   m_TagString: Untagged
@@ -58,6 +58,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7969699934833956582}
   - {fileID: 4535963522748100324}
@@ -76,25 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2450383c78e4f9fa453d2d1004ffb55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BarrelTransform: {fileID: 4535963522748100324}
-  _bulletPrefab: {fileID: 8256470978176610155, guid: 9b7ee3ebe18995f44983326e18a9514e, type: 3}
---- !u!114 &5158659840354725394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894373914595462431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09783095c52849c38730af53dc5a534e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 12
-  Accuracy: 0.85
-  FireRate: 0.5
-  ClipSize: 10
-  ReloadTime: 6
+  <Info>k__BackingField: {fileID: 11400000, guid: ca5c825008ae7f044ae88a3c8fe474e8, type: 2}
+  <BarrelTransform>k__BackingField: {fileID: 4535963522748100324}
 --- !u!1001 &3161732628955201020
 PrefabInstance:
   m_ObjectHideFlags: 0
