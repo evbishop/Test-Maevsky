@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: Weapon - Sniper
   m_EditorClassIdentifier: 
   <BulletPrefab>k__BackingField: {fileID: 8308922753951757661, guid: 9b7ee3ebe18995f44983326e18a9514e, type: 3}
-  <Damage>k__BackingField: 15
-  <Accuracy>k__BackingField: 0.95
-  <FireRate>k__BackingField: 0.1
-  <ClipSize>k__BackingField: 5
-  <ReloadTime>k__BackingField: 6
+  <Stats>k__BackingField:
+  - Type: 1
+    Value: 15
+  - Type: 2
+    Value: 0.95
+  - Type: 3
+    Value: 0.1
+  - Type: 4
+    Value: 5
+  - Type: 5
+    Value: 6

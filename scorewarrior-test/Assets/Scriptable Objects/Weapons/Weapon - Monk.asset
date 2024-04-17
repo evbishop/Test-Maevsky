@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: Weapon - Monk
   m_EditorClassIdentifier: 
   <BulletPrefab>k__BackingField: {fileID: 8308922753951757661, guid: 9b7ee3ebe18995f44983326e18a9514e, type: 3}
-  <Damage>k__BackingField: 6
-  <Accuracy>k__BackingField: 0.7
-  <FireRate>k__BackingField: 3
-  <ClipSize>k__BackingField: 30
-  <ReloadTime>k__BackingField: 5
+  <Stats>k__BackingField:
+  - Type: 1
+    Value: 6
+  - Type: 2
+    Value: 0.7
+  - Type: 3
+    Value: 3
+  - Type: 4
+    Value: 30
+  - Type: 5
+    Value: 5
