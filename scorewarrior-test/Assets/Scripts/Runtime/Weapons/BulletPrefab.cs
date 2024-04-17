@@ -8,7 +8,7 @@ namespace Scorewarrior.Runtime.Weapons
 		[SerializeField] private BulletInfo _bulletInfo;
 
 		private Character _target;
-		private WeaponPrefab _weapon;
+		private Weapon _weapon;
 		private bool _isHit;
 		private Vector3 _startPosition;
 		private Vector3 _direction;
@@ -23,7 +23,6 @@ namespace Scorewarrior.Runtime.Weapons
 
 		private void Update()
 		{
-			
 			_currentDistance += Time.deltaTime * _bulletInfo.Speed;
 			if (_currentDistance < _totalDistance)
 			{
@@ -33,13 +32,13 @@ namespace Scorewarrior.Runtime.Weapons
 			{
 				if (_isHit)
 				{
-					_target.TakeDamage(_weapon.Info.GetValue(WeaponStatType.Damage));
+					_target.TakeDamage(_weapon.GetStatValue(WeaponStatType.Damage));
 				}
 				Destroy(gameObject);
 			}
 		}
 
-		public void Init(WeaponPrefab weapon, Character target, bool isHit)
+		public void Init(Weapon weapon, Character target, bool isHit)
 		{
 			_weapon = weapon;
 			_target = target;

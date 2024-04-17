@@ -1,3 +1,5 @@
+using Scorewarrior.Runtime.Weapons;
+
 namespace Scorewarrior.Runtime.Characters.States
 {
     public class StateReloading : State
@@ -7,13 +9,13 @@ namespace Scorewarrior.Runtime.Characters.States
 
         public StateReloading(CharacterStates stateMachine, Character target) : base(stateMachine)
         {
-            _time = weapon.Prefab.Info.GetValue(Weapons.WeaponStatType.ReloadTime);
+            _time = weapon.GetStatValue(WeaponStatType.ReloadTime);
             _target = target;
         }
 
         public override void Update(float deltaTime)
         {
-            character.Prefab.Anim.PlayAnimReloading(weapon.Prefab.Info.GetValue(Weapons.WeaponStatType.ReloadTime) / 3.3f);
+            character.Prefab.Anim.PlayAnimReloading(weapon.GetStatValue(WeaponStatType.ReloadTime) / 3.3f);
 
             if (_time > 0)
             {

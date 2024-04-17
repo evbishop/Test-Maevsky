@@ -5,6 +5,7 @@ using Scorewarrior.Runtime.Characters.States;
 using System;
 using Random = UnityEngine.Random;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Scorewarrior.Runtime.Characters
 {
@@ -31,36 +32,54 @@ namespace Scorewarrior.Runtime.Characters
 			Transform = prefab.transform;
 			Weapon = weapon;
 			Battlefield = battlefield;
-			_health = prefab.Info.GetValue(CharacterStatType.MaxHealth);
-			_armor = prefab.Info.GetValue(CharacterStatType.MaxArmor);
 			_states = new CharacterStates(this);
+			
+			GenerateBonuses();
+			Weapon.Setup();
+			_health = GetStatValue(CharacterStatType.MaxHealth);
+			_armor = GetStatValue(CharacterStatType.MaxArmor);
 		}
 
-		public void GenerateBonuses()
+		private void GenerateBonuses()
 		{
-			int characterStatsQuantity = Enum.GetNames(typeof(CharacterStatType)).Length - 1;
-			int weaponStatsQuantity = Enum.GetNames(typeof(WeaponStatType)).Length - 1;
+			int characterStatsQuantity = Enum.GetNames(typeof(CharacterStatType)).Length;
+			int weaponStatsQuantity = Enum.GetNames(typeof(WeaponStatType)).Length;
 			int totalStatsQuantity = characterStatsQuantity + weaponStatsQuantity;
 
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < CharacterBonusesInfo.Instance.RollsQuantity; i++)
 			{
-				int r = Random.Range(1, totalStatsQuantity);
-				if (r <= characterStatsQuantity)
+				int r = Random.Range(1, totalStatsQuantity - 1);
+				if (r < characterStatsQuantity)
 				{
 					CharacterStatType stat = (CharacterStatType)r;
-					CharacterBonusesInfo.Instance.GetRandomBonusValue(stat);
+					_characterBonuses.Add(CharacterBonusesInfo.Instance.GetRandomBonusValue(stat));
 				}
 				else
 				{
 					r -= characterStatsQuantity;
+					r++; // move the range to the right by one position, so we don't include 0, which is "None" in the enum
 					WeaponStatType stat = (WeaponStatType)r;
-					WeaponBonusesInfo.Instance.GetRandomBonusValue(stat);
+					Weapon.WeaponBonuses.Add(WeaponBonusesInfo.Instance.GetRandomBonusValue(stat));
 				}
 			}
-			for (int i = 0; i < 2; i++)
+			for (int i = 0; i < WeaponBonusesInfo.Instance.RollsQuantity; i++)
 			{
-
+				int r = Random.Range(1, weaponStatsQuantity);
+				WeaponStatType stat = (WeaponStatType)r;
+				Weapon.WeaponBonuses.Add(WeaponBonusesInfo.Instance.GetRandomBonusValue(stat));
 			}
+		}
+
+		public float GetStatValue(CharacterStatType statType)
+		{
+			float baseValue = Prefab.Info.GetValue(statType);
+			float totalBonusModifier = 1f;
+			foreach (var bonus in _characterBonuses.Where(bonus => bonus.Type == statType))
+			{
+				totalBonusModifier *= bonus.Value;
+			}
+			Debug.Log($"{statType} bonus: {totalBonusModifier}. Base value: {baseValue}. Result: {baseValue * totalBonusModifier}");
+			return baseValue * totalBonusModifier;
 		}
 
 		public void Update(float deltaTime)
@@ -80,13 +99,13 @@ namespace Scorewarrior.Runtime.Characters
 			if (_armor > 0)
 			{
 				_armor -= damage;
-				Prefab.ArmorDisplay.Setup(_armor/Prefab.Info.GetValue(CharacterStatType.MaxArmor));
+				Prefab.ArmorDisplay.Setup(_armor/GetStatValue(CharacterStatType.MaxArmor));
 			}
 			else if (_health > 0)
 			{
 				Prefab.ArmorDisplay.gameObject.SetActive(false);
 				_health -= damage;
-				Prefab.HealthDisplay.Setup(_health/Prefab.Info.GetValue(CharacterStatType.MaxHealth));
+				Prefab.HealthDisplay.Setup(_health/GetStatValue(CharacterStatType.MaxHealth));
 			}
 			if (_armor <= 0 && _health <= 0)
 			{

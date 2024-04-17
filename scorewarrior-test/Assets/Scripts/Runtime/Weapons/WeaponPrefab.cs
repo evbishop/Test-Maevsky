@@ -8,11 +8,11 @@ namespace Scorewarrior.Runtime.Weapons
 		[field: SerializeField] public WeaponInfo Info { get; private set; }
 		[field: SerializeField] public Transform BarrelTransform { get; private set; }
 
-		public void Fire(Character character, bool hit)
+		public void Fire(Weapon weapon, Character target, bool hit)
 		{
 			BulletPrefab bullet = Instantiate(Info.BulletPrefab);
 			bullet.transform.position = BarrelTransform.position;
-			bullet.Init(this, character, hit);
+			bullet.Init(weapon, target, hit);
 		}
 	}
 }

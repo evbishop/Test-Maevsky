@@ -31,12 +31,13 @@ namespace Scorewarrior.Runtime.Characters
         }
         #endregion
 
+        [field: SerializeField] public int RollsQuantity { get; private set; } = 3;
         [field: SerializeField] public List<CharacterBonus> Bonuses { get; private set; }
 
         public CharacterStat GetRandomBonusValue(CharacterStatType statType)
         {
             CharacterBonus bonus = Bonuses.Find(bonus => bonus.Type == statType);
-            return new CharacterStat() {Type = statType, Value = Random.Range(bonus.MinModifierValue, bonus.MaxModifierValue) };
+            return new CharacterStat() { Type = statType, Value = Random.Range(bonus.MinModifierValue, bonus.MaxModifierValue) };
         }
     }
 

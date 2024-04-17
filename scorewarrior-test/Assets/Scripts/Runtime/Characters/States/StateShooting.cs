@@ -1,4 +1,5 @@
 using UnityEngine;
+using Scorewarrior.Runtime.Weapons;
 
 namespace Scorewarrior.Runtime.Characters.States
 {
@@ -22,9 +23,9 @@ namespace Scorewarrior.Runtime.Characters.States
                     if (weapon.IsReady)
                     {
                         float random = Random.Range(0.0f, 1.0f);
-                        bool hit = random <= character.Prefab.Info.GetValue(CharacterStatType.Accuracy) &&
-                            random <= weapon.Prefab.Info.GetValue(Weapons.WeaponStatType.Accuracy) &&
-                            random >= _target.Prefab.Info.GetValue(CharacterStatType.Dexterity);
+                        bool hit = random <= character.GetStatValue(CharacterStatType.Accuracy) &&
+                            random <= weapon.GetStatValue(WeaponStatType.Accuracy) &&
+                            random >= _target.GetStatValue(CharacterStatType.Dexterity);
                         weapon.Fire(_target, hit);
                         
                         character.Prefab.Anim.PlayAnimShooting();

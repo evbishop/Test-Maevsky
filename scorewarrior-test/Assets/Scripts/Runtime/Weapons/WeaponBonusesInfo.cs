@@ -31,6 +31,7 @@ namespace Scorewarrior.Runtime.Weapons
         }
         #endregion
 
+        [field: SerializeField] public int RollsQuantity { get; private set; } = 2;
         [field: SerializeField] public List<WeaponBonus> Bonuses { get; private set; }
 
         public WeaponStat GetRandomBonusValue(WeaponStatType statType)
