@@ -78,7 +78,6 @@ namespace Scorewarrior.Runtime.Characters
 			{
 				totalBonusModifier *= bonus.Value;
 			}
-			Debug.Log($"{statType} bonus: {totalBonusModifier}. Base value: {baseValue}. Result: {baseValue * totalBonusModifier}");
 			return baseValue * totalBonusModifier;
 		}
 
