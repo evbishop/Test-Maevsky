@@ -14,6 +14,13 @@ namespace Scorewarrior.Test
 
 			director.Execute(new DeleteCommand(42));
 			director.Execute(new PushCommand("the cake is a lie"));
+
+			IExecutionDirector newDirector = new ExecutionDirectorNoReflection();
+			newDirector.RegisterExecutor<DeleteCommand, DeleteExecutorNoReflection>(new DeleteExecutorNoReflection());
+			newDirector.RegisterExecutor<PushCommand, PushExecutorNoReflection>(new PushExecutorNoReflection());
+
+			newDirector.Execute(new DeleteCommand(24));
+			newDirector.Execute(new PushCommand("no reflection"));
 		}
 	}
 }
